@@ -55,6 +55,16 @@ make
 sudo make install
 ```
 
+切换JAVA版本到Oracle jdk1.8：
+
+```bash
+sudo update-alternatives --install /usr/bin/java java /opt/jdk1.8.0_281/bin/java 700
+sudo update-alternatives --install /usr/bin/javac javac /opt/jdk1.8.0_281/bin/javac 700
+sudo update-alternatives --install /usr/bin/jar jar /opt/jdk1.8.0_281/bin/jar 700
+sudo update-alternatives --config java # 选择jdk1.8
+java -version # 检查是否配置成功
+```
+
 编译CommonAPI Core Runtime代码生成工具：
 
 ```bash
@@ -76,7 +86,7 @@ chmod +x ./commonapi_core_generator/commonapi-core-generator-linux-x86_64
 ```bash
 git clone https://github.com/GENIVI/capicxx-someip-tools.git
 cd capicxx-someip-tools/org.genivi.commonapi.someip.releng/
-mvn -DCOREPATH=/home/lxl/work/someip_dev/capicxx-core-tools -Dtarget.id=org.genivi.commonapi.someip.target clean verify
+mvn -DCOREPATH=/home/lxl/Develop/capicxx-core-tools -Dtarget.id=org.genivi.commonapi.someip.target clean verify
 ```
 
 解压得到代码生成工具：
